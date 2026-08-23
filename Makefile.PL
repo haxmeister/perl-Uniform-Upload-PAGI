@@ -11,14 +11,28 @@ WriteMakefile(
     MIN_PERL_VERSION => '5.010000',
 
     PREREQ_PM => {
-        'Uniform'         => '1.00', # Enforces your base exceptions/utils ecosystem mandate
-        'Uniform::Upload' => '0.01', # The abstract file specification layer
+        'Uniform::Upload' => '0.02',
+        'Uniform::Utils'  => '1.01',
+        'Future'          => '0.40',
     },
 
     TEST_REQUIRES => {
         'Test::More'      => '0.88',
         'Test::Exception' => '0',
-        'Test::Deep'      => '0',
+    },
+
+    META_MERGE => {
+        'meta-spec' => { version => 2 },
+        resources   => {
+            repository => {
+                type => 'git',
+                url  => 'https://github.com/haxmeister/perl-Uniform-Upload-PAGI',
+                web  => 'https://github.com/haxmeister/perl-Uniform-Upload-PAGI',
+            },
+            bugtracker => {
+                web  => 'https://github.com/haxmeister/perl-Uniform-Upload-PAGI/issues',
+            },
+        },
     },
 
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
