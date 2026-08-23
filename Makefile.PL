@@ -11,7 +11,8 @@ WriteMakefile(
     MIN_PERL_VERSION => '5.010000',
 
     PREREQ_PM => {
-        'Uniform::Upload' => '0.01', # Requires your live polished core upload module!
+        'Uniform'         => '1.00', # Enforces your base exceptions/utils ecosystem mandate
+        'Uniform::Upload' => '0.01', # The abstract file specification layer
     },
 
     TEST_REQUIRES => {

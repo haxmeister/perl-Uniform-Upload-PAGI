@@ -32,8 +32,9 @@ sub new {
     # Extract PAGI multipart attachments if parsed by the gateway pipeline.
     # The PAGI spec exposes uploaded files inside an array reference block: $scope->{uploads}
     # where each element is a hash containing: field, tempname, filename, size, and type.
-    if ($scope->{uploads} && ref($scope->{uploads}) eq 'ARRAY') {
-        foreach my $upload_payload (@{ $scope->{uploads} }) {
+    my $uploads = $scope->{uploads} || [];
+    if (ref($uploads) eq 'ARRAY') {
+        foreach my $upload_payload (@$uploads) {
             next unless ref($upload_payload) eq 'HASH';
 
             my $field = $upload_payload->{field};
